@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects | Nate Tecle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><nav aria-label="Main"><a class="name" href="index.html">Nate Tecle</a>
+<a href="skills.html" >Skills</a>
+<a href="projects.html" aria-current=page>Projects</a>
+<a href="experience.html" >Experience</a>
+<a href="education.html" >Education</a>
+<a href="beyond.html" >Beyond class</a></nav></header><main>
+<h1>Projects</h1>
+<p class="lede">Three projects that show the same pattern: take a business question, build a data-driven tool or structure to answer it, and explain the result in plain language.</p>
+
+<div class="item"><h3>AI-Powered Revenue Forecasting App for an Audit Committee</h3>
+<p class="meta">ITEC 3155 / ACTG 4155 · Spring 2025 · Python, Streamlit, ARIMA/ARIMAX · Partner project, presented in a group of four</p>
+<dl>
+<dt>Business problem</dt><dd>Auditors need early warning when a company's reported revenue looks too good. This project asked: how can an audit committee evaluate the risk that Starbucks has overstated revenue, using a forecast as the benchmark?</dd>
+<dt>My role</dt><dd>I built the forecasting engine and the data pipeline. That included fitting the ARIMAX model from my earlier project, pulling live CPI data from FRED, and connecting both to a user input for expected revenue growth. My partner focused on the page layout and charts, and we split the AI summary and the written documentation.</dd>
+<dt>New insight</dt><dd>I added average ticket (the average amount spent per transaction) as the new variable, plotted beside revenue. It let us ask whether revenue growth came from customers spending more per visit or from more visits.</dd>
+<dt>Challenges</dt><dd>The live CPI data arrived in a different frequency than quarterly revenue, so I had to align the two series before the model would run. Early AI summaries were too generic for an audit committee, so I rewrote the prompts to require specific numbers and a clear risk statement, then edited the output by hand. I also had to explain ARIMA without jargon.</dd>
+<dt>Enhancement</dt><dd>Risk-flagging logic that marks a quarter when actual revenue sits well above the forecast range, so the committee sees where to look first.</dd>
+<dt>Artifacts</dt><dd><figure><img src="images/starbucks-forecast.png" alt="Line chart of Starbucks quarterly revenue from 2018 to 2024 in blue, an orange dashed ARIMAX forecast with a gray confidence band through 2025, and average ticket in purple on a second axis"><figcaption>ARIMAX forecast of Starbucks quarterly revenue with CPI as an input. The blue line is observed revenue, the dashed orange line is the forecast, and the gray band is the confidence interval. The purple line is average ticket on the right-hand axis, the new variable I added. The forecast puts revenue near $9.0 billion per quarter through 2025, within a band of roughly $8.4 to $9.7 billion.</figcaption></figure><span class="todo">Add a link to the .py file and the presentation slides.</span></dd>
+<dt>Business value and outcome</dt><dd>Revenue climbed steadily from 2018 to 2024 while average ticket drifted down and swung more widely, which suggests growth came from more transactions rather than higher prices per visit. That is the pattern an audit committee should test against store count and traffic data before accepting the forecast as a clean benchmark, so we presented it as a moderate-risk finding. The app turns a statistical model into a risk signal a non-technical committee can read in one chart and one message.</dd>
+</dl></div>
+
+<div class="item"><h3>IT Audit and Cybersecurity Readiness Assessment: Fast Freddy's Furniture Depot</h3>
+<p class="meta">ACTG 4575 · Team simulation of a client engagement · Audit program, workpapers, findings, and executive presentation</p>
+<dl>
+<dt>Business problem</dt><dd>Fast Freddy's, a Denver furniture manufacturer with a growing web business, runs everything on one SAP ERP system hosted in an Omaha datacenter. Executives wanted to know how ready their cybersecurity was, and the financial statement auditors needed to know whether they could rely on the company's IT general controls.</dd>
+<dt>My role</dt><dd>I helped draft the audit program before our interview with the CIO and took the lead on the user account management and password settings sections, from test steps through workpapers. I also helped write up findings and presented the access control results to the client's executives.</dd>
+<dt>Challenges</dt><dd>Interview time and follow-up requests were limited, so we prepared a draft audit program and a question list in advance and used only our allowed follow-ups. We also had to fold in the datacenter and backup results from another audit team so the program and findings read as one engagement.</dd>
+<dt>Artifacts</dt><dd><figure><img src="images/cybersecurity-readiness.png" alt="Table rating six cybersecurity functions as high or medium risk, each with a recommended action"><figcaption>Cybersecurity readiness results, organized by the six functions of the NIST Cybersecurity Framework. Govern, Detect, and Respond were rated high risk, and Identify, Protect, and Recover medium risk. Each row pairs the rating with a specific recommendation, such as a formal incident response plan, restoring the intrusion detection system, and tested backup recovery.</figcaption></figure></dd>
+<dt>Business value and outcome</dt><dd>Using the NIST Cybersecurity Framework as our rating scale, we rated Govern, Detect, and Respond as high risk and Identify, Protect, and Recover as medium. Our top recommendations were a formal incident response plan with a ransomware tabletop exercise, restoring the intrusion detection capability with continuous log monitoring, and documented governance roles. In the IT audit, findings included user accounts that stayed active after employees left, password settings weaker than company policy, and program changes without documented approval. We concluded that the audit team could not rely on the IT general controls this period without expanded substantive testing, and we gave management a prioritized list of fixes, starting with access removal.</dd>
+</dl></div>
+
+<div class="item"><h3>Coastline Landscaping Database Design</h3>
+<p class="meta">INFO 3140 · SQL, entity relationship modeling · Individual project</p>
+<dl>
+<dt>Business problem</dt><dd>Coastline, a growing West Coast landscaping company, spread its resources too thin across several states. Management wanted to find its most and least popular services, identify the regions with the highest demand, and focus on smaller markets before restructuring the business.</dd>
+<dt>My role</dt><dd>I did all of it: wrote the business rules, designed the five-entity model (Client, Invoice, Property, Service, and Property Service), drew the ER diagram in Lucidchart, built and loaded the database in SQL, and wrote the queries. Because properties and services are many-to-many, I resolved that relationship with the Property Service table.</dd>
+<dt>Challenges</dt><dd>Keeping the ER diagram and the actual tables consistent, getting cardinality right, and making sure every foreign key pointed to a real primary key. The many-to-many relationship was the part I had to rework before the design was correct.</dd>
+<dt>Queries</dt><dd>Four queries, each with a business purpose: services ranked by the number of properties served; clients whose total billing exceeded a threshold (GROUP BY with HAVING); properties with no services recorded, using an outer join; and revenue by region.</dd>
+<dt>Artifacts</dt><dd><figure><img src="images/coastline-erd.png" alt="Entity relationship diagram with five tables: Client, Invoice, Property, Property Service, and Service"><figcaption>Entity relationship diagram for the Coastline database. A client has many invoices and many properties. Properties and services have a many-to-many relationship, resolved by the Property Service table, which holds the service date. Every table has a primary key, and each foreign key points to a primary key in another table.</figcaption></figure><span class="todo">Add a link to the .sql file and a screenshot of a query result.</span></dd>
+<dt>Business value and outcome</dt><dd>The queries showed that a few core services, such as irrigation maintenance, drove most of the activity, while specialty services like pest control were requested far less often. That is the evidence management needs to decide which offerings to strengthen and which to phase out.</dd>
+</dl></div>
+
+<h2>What these projects have in common</h2>
+<p>In accounting terms: the forecasting app tests whether reported numbers look reasonable, the IT audit tests whether the systems producing those numbers can be trusted, and the database shows I can organize the data in the first place. <a href="skills.html">See my skills</a> for the tools behind each.</p>
+</main><footer>Nate Tecle · Denver, CO · <a href="mailto:natnael.tecle@du.edu">natnael.tecle@du.edu</a> · <a href="https://www.linkedin.com/in/natnael-tecle/">LinkedIn</a></footer></body></html>
