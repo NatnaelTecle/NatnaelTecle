@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills | Nate Tecle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><nav aria-label="Main"><a class="name" href="index.html">Nate Tecle</a>
+<a href="skills.html" aria-current=page>Skills</a>
+<a href="projects.html" >Projects</a>
+<a href="experience.html" >Experience</a>
+<a href="education.html" >Education</a>
+<a href="beyond.html" >Beyond class</a></nav></header><main>
+<h1>Skills</h1><p class="lede">Accounting judgment first, with tools that let me test whole populations instead of samples.</p>
+<h2>Technical</h2>
+<div class="item"><h3>Python</h3><p class="meta">Forecasting, data analysis, and app building</p>
+<p>I used Python to build an ARIMAX time-series model that forecasts Starbucks quarterly revenue, with CPI as an outside input and average ticket as an added variable. The model produces a forecast with a confidence band. I wrapped it in a Streamlit app that pulls live CPI data from FRED, accepts a user assumption, flags quarters where actual revenue runs above the forecast range, and produces an AI-assisted summary written for an audit committee.</p>
+<p>The hard parts were lining up data series with different frequencies and explaining the method in plain language to a non-technical audience. I also use loops and flowcharts to plan program logic before writing code. <a href="projects.html">See the full project</a>.</p>
+<figure><img src="images/starbucks-forecast.png" alt="ARIMAX forecast of Starbucks quarterly revenue with confidence band and average ticket"><figcaption>ARIMAX revenue forecast with CPI input and average ticket trend.</figcaption></figure></div>
+<div class="item"><h3>SQL</h3><p class="meta">Querying, aggregating, and designing relational databases</p>
+<p><strong>Querying:</strong> I use SQL to turn tables into answers. I join multiple tables and summarize with COUNT, SUM, AVG, MIN, and MAX. I know the difference between COUNT(*) and COUNT(column), since NULL values change the result. I use GROUP BY to total amounts by customer or state, and HAVING to filter on those totals, for example to find states whose orders exceed a dollar threshold. I filter early with WHERE when I can, so the database groups less data, and I use subqueries to compare values against an overall average.</p>
+<p><strong>Design:</strong> I designed a five-table database for a landscaping company, with primary and foreign keys and an associative table to resolve a many-to-many relationship. <a href="projects.html">See the project</a>. In audit work, the same skills support reconciliation and testing whole populations instead of samples.</p>
+<figure><img src="images/coastline-erd.png" alt="Entity relationship diagram with Client, Invoice, Property, Property Service, and Service tables"><figcaption>Entity relationship diagram for the Coastline database.</figcaption></figure></div>
+<div class="item"><h3>Alteryx</h3><p class="meta">Data preparation, reconciliation, and business analysis</p>
+<p>I completed an individual data consulting project for Eddie's Tennis Warehouse, a wholesale tennis equipment distributor, covering a full year of its sales-to-cash process. I loaded multiple files (invoices, customers, cash receipts, product list, and sales team data), cleansed them, and tied each one to the client's control totals before any analysis, so the results could be trusted.</p>
+<p>I then built workflows to examine management's concerns, including whether the reported accounts receivable balance of $590,738.64 was supportable, whether customers stayed within credit limits, which invoices were more than 90 days old and might need write-offs, whether early-payment discounts followed policy, whether sales reps used official retail prices, and what commissions would cost. For each result, I wrote up what it meant for the business, not just the numbers, in a client-ready report.</p></div>
+<div class="item"><h3>Microsoft Office</h3><p class="meta">Certified: advanced Excel, Word, PowerPoint</p><p>Pivot tables, VLOOKUP, conditional formatting, charts, and presentation design for financial reporting.</p></div>
+<h2>Professional</h2>
+<div class="item"><h3>Attention to detail under rules</h3><p>Documented meal orders accurately for memory care residents, where dietary requirements were non-negotiable. The same habits carry into audit work.</p></div>
+<div class="item"><h3>Communication and teamwork</h3><p>Worked across departments at Modena, collaborated on the Madden Innovation Challenge, and organized service events through Beta Alpha Psi.</p></div>
+</main><footer>Nate Tecle · Denver, CO · <a href="mailto:natnael.tecle@du.edu">natnael.tecle@du.edu</a> · <a href="https://www.linkedin.com/in/natnael-tecle/">LinkedIn</a></footer></body></html>
